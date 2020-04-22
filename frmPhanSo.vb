@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class frmPhanSo
     Dim Chuoi As String
 
     Private Sub btnCong_Click(sender As Object, e As EventArgs) Handles btnCong.Click
