@@ -33,9 +33,12 @@ Partial Class frmSinhVien
         Me.DeleteButton3 = New System.Windows.Forms.Button()
         Me.SortButton4 = New System.Windows.Forms.Button()
         Me.DisplayButton5 = New System.Windows.Forms.Button()
-        Me.FindButton6 = New System.Windows.Forms.Button()
         Me.ClearButton7 = New System.Windows.Forms.Button()
-        Me.DisplayTextBox1 = New System.Windows.Forms.TextBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.MaSo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HoTen = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Diem = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -131,40 +134,59 @@ Partial Class frmSinhVien
         Me.DisplayButton5.Text = "Display"
         Me.DisplayButton5.UseVisualStyleBackColor = True
         '
-        'FindButton6
-        '
-        Me.FindButton6.Location = New System.Drawing.Point(171, 113)
-        Me.FindButton6.Name = "FindButton6"
-        Me.FindButton6.Size = New System.Drawing.Size(75, 23)
-        Me.FindButton6.TabIndex = 3
-        Me.FindButton6.Text = "Find"
-        Me.FindButton6.UseVisualStyleBackColor = True
-        '
         'ClearButton7
         '
-        Me.ClearButton7.Location = New System.Drawing.Point(252, 113)
+        Me.ClearButton7.Location = New System.Drawing.Point(171, 113)
         Me.ClearButton7.Name = "ClearButton7"
         Me.ClearButton7.Size = New System.Drawing.Size(75, 23)
         Me.ClearButton7.TabIndex = 4
         Me.ClearButton7.Text = "Clear"
         Me.ClearButton7.UseVisualStyleBackColor = True
         '
-        'DisplayTextBox1
+        'DataGridView1
         '
-        Me.DisplayTextBox1.Location = New System.Drawing.Point(12, 192)
-        Me.DisplayTextBox1.Multiline = True
-        Me.DisplayTextBox1.Name = "DisplayTextBox1"
-        Me.DisplayTextBox1.Size = New System.Drawing.Size(560, 157)
-        Me.DisplayTextBox1.TabIndex = 10
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MaSo, Me.HoTen, Me.Diem})
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 171)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(560, 178)
+        Me.DataGridView1.TabIndex = 11
+        '
+        'MaSo
+        '
+        Me.MaSo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.MaSo.DataPropertyName = "MaSo"
+        Me.MaSo.HeaderText = "Mã số"
+        Me.MaSo.Name = "MaSo"
+        Me.MaSo.ReadOnly = True
+        '
+        'HoTen
+        '
+        Me.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.HoTen.DataPropertyName = "HoTen"
+        Me.HoTen.HeaderText = "Họ tên"
+        Me.HoTen.Name = "HoTen"
+        Me.HoTen.ReadOnly = True
+        '
+        'Diem
+        '
+        Me.Diem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Diem.DataPropertyName = "Diem"
+        Me.Diem.HeaderText = "Điểm"
+        Me.Diem.Name = "Diem"
+        Me.Diem.ReadOnly = True
         '
         'frmSinhVien
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(584, 361)
-        Me.Controls.Add(Me.DisplayTextBox1)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ClearButton7)
-        Me.Controls.Add(Me.FindButton6)
         Me.Controls.Add(Me.DisplayButton5)
         Me.Controls.Add(Me.SortButton4)
         Me.Controls.Add(Me.DeleteButton3)
@@ -179,6 +201,7 @@ Partial Class frmSinhVien
         Me.Name = "frmSinhVien"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sinh viên"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -195,7 +218,9 @@ Partial Class frmSinhVien
     Friend WithEvents DeleteButton3 As Button
     Friend WithEvents SortButton4 As Button
     Friend WithEvents DisplayButton5 As Button
-    Friend WithEvents FindButton6 As Button
     Friend WithEvents ClearButton7 As Button
-    Friend WithEvents DisplayTextBox1 As TextBox
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents MaSo As DataGridViewTextBoxColumn
+    Friend WithEvents HoTen As DataGridViewTextBoxColumn
+    Friend WithEvents Diem As DataGridViewTextBoxColumn
 End Class

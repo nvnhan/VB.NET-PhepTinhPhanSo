@@ -15,7 +15,6 @@ Public Class frmSinhVien
         MaSoTextBox1.Text = ""
         HoTenTextBox2.Text = ""
         DiemTextBox3.Text = ""
-        DisplayTextBox1.Text = ""
     End Sub
 
     ''' <summary>
@@ -23,7 +22,7 @@ Public Class frmSinhVien
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub FindButton6_Click(sender As Object, e As EventArgs) Handles FindButton6.Click
+    Private Sub FindButton6_Click(sender As Object, e As EventArgs)
         Dim ms = MaSoTextBox1.Text
         ' Dùng LINQ tìm sinh viên có mã số tương ứng
         Dim svFind = From sv In ListSinhVien
@@ -76,16 +75,9 @@ Public Class frmSinhVien
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub DeleteButton3_Click(sender As Object, e As EventArgs) Handles DeleteButton3.Click
-        Dim ms = MaSoTextBox1.Text
-        ' Dùng LINQ tìm sinh viên có mã số tương ứng
-        Dim svFind = From sv In ListSinhVien
-                     Where sv.MaSo = ms
-        If svFind.Count() > 0 Then
-            ListSinhVien.Remove(svFind)
-            MsgBox("Đã xóa sinh viên có mã số " + ms)
-        Else
-            MsgBox("Không tìm thấy sinh viên")
-        End If
+        ListSinhVien.Clear()
+
+        MsgBox("Đã xóa danh sách sinh viên")
     End Sub
 
     ''' <summary>
@@ -101,10 +93,29 @@ Public Class frmSinhVien
     End Sub
 
     Private Sub DisplayButton5_Click(sender As Object, e As EventArgs) Handles DisplayButton5.Click
-        DisplayTextBox1.Text = ""
+        Dim dt As New DataTable()
+        dt.Columns.Add("MaSo")
+        dt.Columns.Add("HoTen")
+        dt.Columns.Add("Diem")
+
         For Each sv In ListSinhVien
-            DisplayTextBox1.Text += sv.MaSo + "   " + sv.HoTen + "   " + sv.Diem.ToString() + Environment.NewLine
+            Dim row As DataRow = dt.NewRow()
+            row("MaSo") = sv.MaSo
+            row("HoTen") = sv.HoTen
+            row("Diem") = sv.Diem
+            dt.Rows.Add(row)
         Next
+
+        DataGridView1.DataSource = dt
+    End Sub
+
+    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Dim selectedRow = DataGridView1.Rows(e.RowIndex)
+            MaSoTextBox1.Text = selectedRow.Cells(0).Value
+            HoTenTextBox2.Text = selectedRow.Cells(1).Value
+            DiemTextBox3.Text = selectedRow.Cells(2).Value
+        End If
     End Sub
 End Class
 
