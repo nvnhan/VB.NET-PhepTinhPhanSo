@@ -15,6 +15,8 @@ Public Class frmSinhVien
         MaSoTextBox1.Text = ""
         HoTenTextBox2.Text = ""
         DiemTextBox3.Text = ""
+        ListBox1.Items.Clear()
+
     End Sub
 
     ''' <summary>
@@ -93,29 +95,22 @@ Public Class frmSinhVien
     End Sub
 
     Private Sub DisplayButton5_Click(sender As Object, e As EventArgs) Handles DisplayButton5.Click
-        Dim dt As New DataTable()
-        dt.Columns.Add("MaSo")
-        dt.Columns.Add("HoTen")
-        dt.Columns.Add("Diem")
 
         For Each sv In ListSinhVien
-            Dim row As DataRow = dt.NewRow()
-            row("MaSo") = sv.MaSo
-            row("HoTen") = sv.HoTen
-            row("Diem") = sv.Diem
-            dt.Rows.Add(row)
+            ListBox1.Items.Add(sv.MaSo + ", " + sv.HoTen + ", " + sv.Diem.ToString())
         Next
 
-        DataGridView1.DataSource = dt
     End Sub
 
-    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
-        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-            Dim selectedRow = DataGridView1.Rows(e.RowIndex)
-            MaSoTextBox1.Text = selectedRow.Cells(0).Value
-            HoTenTextBox2.Text = selectedRow.Cells(1).Value
-            DiemTextBox3.Text = selectedRow.Cells(2).Value
+    Private Sub ListBox1_Click(sender As Object, e As EventArgs) Handles ListBox1.Click
+        If ListBox1.SelectedItem IsNot Nothing Then
+            Dim sv = ListBox1.SelectedItem.ToString()
+            Dim array = sv.Split(", ")
+            MaSoTextBox1.Text = array(0)
+            HoTenTextBox2.Text = array(1)
+            DiemTextBox3.Text = array(2)
         End If
+
     End Sub
 End Class
 

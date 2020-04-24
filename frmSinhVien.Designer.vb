@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmSinhVien
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmSinhVien
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -34,11 +34,7 @@ Partial Class frmSinhVien
         Me.SortButton4 = New System.Windows.Forms.Button()
         Me.DisplayButton5 = New System.Windows.Forms.Button()
         Me.ClearButton7 = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.MaSo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HoTen = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Diem = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -143,49 +139,23 @@ Partial Class frmSinhVien
         Me.ClearButton7.Text = "Clear"
         Me.ClearButton7.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'ListBox1
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MaSo, Me.HoTen, Me.Diem})
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 171)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(560, 178)
-        Me.DataGridView1.TabIndex = 11
-        '
-        'MaSo
-        '
-        Me.MaSo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.MaSo.DataPropertyName = "MaSo"
-        Me.MaSo.HeaderText = "Mã số"
-        Me.MaSo.Name = "MaSo"
-        Me.MaSo.ReadOnly = True
-        '
-        'HoTen
-        '
-        Me.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.HoTen.DataPropertyName = "HoTen"
-        Me.HoTen.HeaderText = "Họ tên"
-        Me.HoTen.Name = "HoTen"
-        Me.HoTen.ReadOnly = True
-        '
-        'Diem
-        '
-        Me.Diem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Diem.DataPropertyName = "Diem"
-        Me.Diem.HeaderText = "Điểm"
-        Me.Diem.Name = "Diem"
-        Me.Diem.ReadOnly = True
+        Me.ListBox1.ColumnWidth = 90
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Location = New System.Drawing.Point(12, 177)
+        Me.ListBox1.MultiColumn = True
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
+        Me.ListBox1.Size = New System.Drawing.Size(560, 173)
+        Me.ListBox1.TabIndex = 10
         '
         'frmSinhVien
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(584, 361)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.ClearButton7)
         Me.Controls.Add(Me.DisplayButton5)
         Me.Controls.Add(Me.SortButton4)
@@ -201,7 +171,6 @@ Partial Class frmSinhVien
         Me.Name = "frmSinhVien"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sinh viên"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -219,8 +188,5 @@ Partial Class frmSinhVien
     Friend WithEvents SortButton4 As Button
     Friend WithEvents DisplayButton5 As Button
     Friend WithEvents ClearButton7 As Button
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents MaSo As DataGridViewTextBoxColumn
-    Friend WithEvents HoTen As DataGridViewTextBoxColumn
-    Friend WithEvents Diem As DataGridViewTextBoxColumn
+    Friend WithEvents ListBox1 As ListBox
 End Class
